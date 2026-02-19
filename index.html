@@ -208,13 +208,23 @@
       display: flex; justify-content: space-between; align-items: center;
       position: sticky; top: 0; 
       background: linear-gradient(180deg, var(--bg) 0%, transparent 100%);
-      z-index: 10;
+      z-index: 100;
     }
     .header-left { display: flex; align-items: center; gap: 12px; }
     
     .logo-icon {
       width: 36px; height: 36px;
       position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .logo-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    .logo-icon:active {
+      transform: scale(0.95);
     }
     
     .badge {
@@ -226,8 +236,78 @@
     
     .date-info { font-size: 10px; font-weight: 600; color: var(--text-secondary); text-align: right; line-height: 1.6; letter-spacing: 0.05em; text-transform: uppercase; }
     
+    /* Dropdown Menu */
+    .nav-menu {
+      position: absolute;
+      top: 70px;
+      left: 20px;
+      background: rgba(26, 18, 22, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      min-width: 160px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 101;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .nav-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    
+    .nav-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    
+    .nav-menu-item:hover {
+      background: var(--card-hover);
+      color: var(--pink-light);
+    }
+    
+    .nav-menu-item.active {
+      background: var(--card);
+      color: var(--pink-light);
+    }
+    
+    .nav-menu-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    
+    .menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
     /* Content */
-    .content { flex: 1; padding: 0 20px 120px; overflow-y: auto; scroll-behavior: smooth; }
+    .content { flex: 1; padding: 0 20px 20px; overflow-y: auto; scroll-behavior: smooth; }
     .content::-webkit-scrollbar { width: 3px; }
     .content::-webkit-scrollbar-thumb { background: var(--pink-medium); border-radius: 3px; }
     
@@ -245,7 +325,7 @@
     /* Reset Button */
     .reset-btn {
       position: fixed;
-      bottom: 100px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
       padding: 14px 28px;
@@ -425,36 +505,6 @@
     .empty { text-align: center; padding: 80px 20px; }
     .empty-i { font-size: 40px; margin-bottom: 20px; opacity: 0.2; }
     .empty-t { font-size: 12px; font-weight: 600; line-height: 2; color: var(--text-secondary); letter-spacing: 0.1em; text-transform: uppercase; white-space: pre-line; }
-    
-    /* Bottom Nav */
-    .bottom-nav {
-      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 100%; max-width: 430px; 
-      background: rgba(26, 18, 22, 0.95);
-      backdrop-filter: blur(20px); 
-      border-top: 1px solid var(--border);
-      display: flex; padding: 12px 0 28px;
-    }
-    .nav-i { 
-      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; 
-      cursor: pointer; padding: 8px 0; 
-      transition: all 0.3s ease; 
-      opacity: 0.3;
-      position: relative;
-    }
-    .nav-i::after {
-      content: '';
-      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 4px; height: 4px; border-radius: 50%;
-      background: currentColor;
-      opacity: 0;
-      transition: all 0.3s;
-    }
-    .nav-i.active { opacity: 1; }
-    .nav-i.active::after { opacity: 1; bottom: -4px; }
-    .nav-icon { font-size: 20px; line-height: 1; transition: transform 0.3s; }
-    .nav-i.active .nav-icon { transform: scale(1.1); }
-    .nav-l { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
     
     /* Stats */
     .sec-hdr { font-weight: 800; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.15em; margin: 28px 0 16px; }
@@ -821,7 +871,7 @@
     <!-- Header -->
     <div class="header">
       <div class="header-left">
-        <div class="logo-icon">
+        <div class="logo-icon" id="logo-trigger">
           <svg width="36" height="36" viewBox="0 0 48 48" fill="none" id="header-logo">
             <defs>
               <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -843,6 +893,23 @@
       <div class="date-info" id="date-info">
         <div id="current-date">FEB 19, 2026</div>
         <div id="program-info">MONTH 1 · WEEK 1</div>
+      </div>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="nav-menu" id="nav-menu">
+      <div class="nav-menu-item active" data-tab="today">
+        <span class="nav-menu-icon">◉</span>
+        <span>HOME</span>
+      </div>
+      <div class="nav-menu-item" data-tab="history">
+        <span class="nav-menu-icon">◫</span>
+        <span>LOG</span>
+      </div>
+      <div class="nav-menu-item" data-tab="program">
+        <span class="nav-menu-icon">≡</span>
+        <span>PROGRAM</span>
       </div>
     </div>
 
@@ -887,22 +954,6 @@
 
     <!-- Reset Button (appears when workout is logged) -->
     <button class="reset-btn" id="reset-btn" onclick="resetWorkout()">↺ RESET WORKOUT</button>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-      <div class="nav-i active" data-tab="today" style="color:#FFC4D1;">
-        <div class="nav-icon">◉</div>
-        <div class="nav-l">TODAY</div>
-      </div>
-      <div class="nav-i" data-tab="history">
-        <div class="nav-icon">◫</div>
-        <div class="nav-l">LOG</div>
-      </div>
-      <div class="nav-i" data-tab="program">
-        <div class="nav-icon">≡</div>
-        <div class="nav-l">PROGRAM</div>
-      </div>
-    </nav>
   </div>
 
   <script>
@@ -999,6 +1050,7 @@
     let weightLog = [];
     let currentChart = null;
     let currentPhase = 1;
+    let currentTab = 'today';
 
     // ── UTILITY FUNCTIONS ───────────────────────────────────────────────────────
     function getDaysSince(date) {
@@ -1646,19 +1698,41 @@
     }
 
     // ── NAVIGATION ──────────────────────────────────────────────────────────────
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const isOpen = menu.classList.contains('show');
+      
+      if (isOpen) {
+        closeMenu();
+      } else {
+        menu.classList.add('show');
+        overlay.classList.add('show');
+      }
+    }
+    
+    function closeMenu() {
+      const menu = document.getElementById('nav-menu');
+      const overlay = document.getElementById('menu-overlay');
+      menu.classList.remove('show');
+      overlay.classList.remove('show');
+    }
+    
     function switchTab(tabName) {
-      // Update nav
-      document.querySelectorAll('.nav-i').forEach(el => {
+      currentTab = tabName;
+      
+      // Update menu items
+      document.querySelectorAll('.nav-menu-item').forEach(el => {
         el.classList.remove('active');
-        el.style.color = '';
       });
-      const activeNav = document.querySelector(`.nav-i[data-tab="${tabName}"]`);
-      activeNav.classList.add('active');
-      activeNav.style.color = getPhaseColor(currentPhase);
+      document.querySelector(`.nav-menu-item[data-tab="${tabName}"]`).classList.add('active');
       
       // Update content
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.getElementById(`tab-${tabName}`).classList.add('active');
+      
+      // Close menu
+      closeMenu();
       
       // Render content
       if (tabName === 'today') renderToday();
@@ -1698,8 +1772,14 @@
         renderToday();
       }, 3200);
       
-      // Nav listeners
-      document.querySelectorAll('.nav-i').forEach(el => {
+      // Logo click listener
+      document.getElementById('logo-trigger').addEventListener('click', toggleMenu);
+      
+      // Overlay click listener
+      document.getElementById('menu-overlay').addEventListener('click', closeMenu);
+      
+      // Menu item listeners
+      document.querySelectorAll('.nav-menu-item').forEach(el => {
         el.addEventListener('click', () => switchTab(el.dataset.tab));
       });
     }
