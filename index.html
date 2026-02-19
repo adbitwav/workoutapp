@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>WORKOUT 2.0 — 12-MONTH PROGRAM</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300 ;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js "></script>
   <style>
     :root {
       /* Pink/Magenta Color Palette */
@@ -823,7 +823,6 @@
     input[type=number]::-webkit-outer-spin-button { opacity: 0.5; }
   </style>
 <base target="_blank">
-<base target="_blank">
 </head>
 <body>
   <div id="app">
@@ -984,65 +983,103 @@
     // ── WORKOUT DATA ────────────────────────────────────────────────────────────
     const E = (name, sets, reps, note = "") => ({ name, sets, reps, note });
     
-    const P3 = {
-      0:{title:"STRENGTH PUSH",day:"MON",exercises:[E("ARCHER PUSH-UPS",4,"6–8"),E("PSEUDO PLANCHE",4,"8"),E("PIKE PUSH-UPS",4,"10"),E("PLANK",4,"75S")]},
-      1:{title:"LEGS",day:"TUE",exercises:[E("SQUATS",5,"25"),E("BULGARIAN SPLIT SQUAT",4,"12"),E("JUMP SQUATS",4,"12"),E("PLANK",3,"75S")]},
-      2:{title:"CORE + CONDITIONING",day:"WED",exercises:[E("LEG RAISES",4,"20"),E("HOLLOW HOLD",4,"45S"),E("MOUNTAIN CLIMBERS","","45/15 ×10"),E("FRONT PLANK","","90S"),E("SIDE PLANK","","60S EACH")]},
-      3:{title:"PUSH VOLUME",day:"THU",exercises:[E("PUSH-UPS",5,"20"),E("DIAMOND PUSH-UPS",4,"15"),E("WIDE PUSH-UPS",4,"20"),E("PLANK SHOULDER TAPS",4,"50")]},
-      4:{title:"FULL BODY BURN",day:"FRI",note:"5 ROUNDS",exercises:[E("PUSH-UPS","","×25"),E("SQUATS","","×30"),E("HIGH KNEES","","×45S"),E("PLANK","","×75S")]},
-      5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
-    };
-    const P4 = {
-      0:{title:"CHEST & ARMS",day:"MON",exercises:[E("PUSH-UPS",5,"20"),E("DIAMOND PUSH-UPS",4,"20"),E("PSEUDO PLANCHE",4,"12"),E("PLANK",4,"90S")]},
-      1:{title:"LEGS",day:"TUE",exercises:[E("SQUATS",5,"30"),E("JUMP SQUATS",4,"20"),E("WALL SIT",2,"90S"),E("PLANK",3,"90S")]},
-      2:{title:"ABS",day:"WED",exercises:[E("LEG RAISES",4,"25"),E("HOLLOW HOLD",4,"60S"),E("PLANK LADDER","","60S→75S→90S","×2 ROUNDS")]},
-      3:{title:"ARM BURN",day:"THU",exercises:[E("CLOSE PUSH-UPS",4,"25"),E("WIDE PUSH-UPS",4,"25"),E("SHOULDER TAPS",4,"50"),E("PLANK",4,"90S")]},
-      4:{title:"CONDITIONING",day:"FRI",note:"5–6 ROUNDS",exercises:[E("PUSH-UPS","","×30"),E("SQUATS","","×35"),E("MOUNTAIN CLIMBERS","","×60S"),E("PLANK","","×90S")]},
-      5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
-    };
-    const P256 = {
-      0:{title:"PUSH",day:"MON",exercises:[E("PUSH-UPS",5,"15–20"),E("PIKE PUSH-UPS",4,"8"),E("DIAMOND PUSH-UPS",3,"8"),E("FRONT PLANK",4,"75S"),E("PLANK SHOULDER TAPS",4,"40")]},
-      1:{title:"LEGS",day:"TUE",exercises:[E("SQUATS",5,"15"),E("BULGARIAN SPLIT SQUAT",3,"8 EACH"),E("JUMP SQUATS",3,"10"),E("CALF RAISES",4,"25"),E("PLANK",3,"75S")]},
-      2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"12"),E("RUSSIAN TWISTS",3,"20"),E("HIGH KNEES","","20/40 ×12–15"),E("FRONT PLANK","","75S"),E("SIDE PLANK","","60S EACH","×2"),E("PLANK SHOULDER TAPS",4,"40")]},
-      3:{title:"PUSH VOLUME",day:"THU",exercises:[E("PUSH-UPS",4,"15"),E("CLOSE PUSH-UPS",3,"12"),E("WIDE PUSH-UPS",3,"15"),E("PLANK",3,"75S")]},
-      4:{title:"CONDITIONING",day:"FRI",note:"4 ROUNDS",exercises:[E("PUSH-UPS","","×15"),E("SQUATS","","×25"),E("MOUNTAIN CLIMBERS","","×40S"),E("PLANK","","×75S")]},
-      5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
-    };
-
     const WORKOUTS = {
       m1:{
-        0:{title:"UPPER BODY",day:"MON",exercises:[E("PUSH-UPS",4,"10–12"),E("KNEE PUSH-UPS",3,"12–15"),E("PIKE PUSH-UPS",3,"8"),E("PLANK",4,"30–40S")]},
-        1:{title:"LOWER BODY",day:"TUE",exercises:[E("SQUATS",4,"15"),E("REVERSE LUNGES",3,"10 EACH"),E("GLUTE BRIDGE",3,"20"),E("CALF RAISES",3,"25"),E("PLANK",3,"30S")]},
-        2:{title:"CORE + CARDIO",day:"WED",exercises:[E("DEAD BUG",3,"10 EACH"),E("KNEE RAISES",4,"12"),E("MOUNTAIN CLIMBERS",3,"20S"),E("PLANK",4,"40S")]},
-        3:{title:"UPPER BODY",day:"THU",exercises:[E("PUSH-UPS",4,"10–12"),E("KNEE PUSH-UPS",3,"12–15"),E("PIKE PUSH-UPS",3,"8"),E("PLANK",4,"30–40S")]},
-        4:{title:"FULL BODY CIRCUIT",day:"FRI",note:"3 ROUNDS",exercises:[E("PUSH-UPS","","×12"),E("SQUATS","","×20"),E("PLANK","","×40S"),E("WALL SIT","","×45S")]},
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("WALL PUSH-UPS",4,"12"),E("HIGH INCLINE PUSH-UPS",4,"8"),E("KNEE SHOULDER TAPS",3,"10"),E("PLANK",3,"30S")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",4,"12"),E("REVERSE LUNGES",3,"8"),E("GLUTE BRIDGE",3,"15"),E("CALF RAISES",3,"20")]},
+        2:{title:"CORE + LIGHT CONDITIONING",day:"WED",exercises:[E("DEAD BUG",3,"8"),E("LYING KNEE RAISE",3,"10"),E("PLANK",3,"30S"),E("FAST WALK","","15–20 MIN")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("INCLINE PUSH-UPS",4,"10"),E("WALL PUSH-UPS",3,"12"),E("SHOULDER TAPS",3,"12"),E("PLANK",3,"35S")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"2 ROUNDS",exercises:[E("WALL PUSH-UPS","","×12"),E("SQUATS","","×15"),E("GLUTE BRIDGE","","×15"),E("PLANK","","×30S")]},
         5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
       },
       m2:{
-        0:{title:"UPPER BODY",day:"MON",exercises:[E("PUSH-UPS",4,"12–15"),E("KNEE PUSH-UPS",3,"12–15"),E("PIKE PUSH-UPS",3,"8"),E("PLANK",4,"45S"),E("SIDE PLANK",3,"30S EACH")]},
-        1:{title:"LOWER BODY",day:"TUE",exercises:[E("SQUATS",4,"18"),E("REVERSE LUNGES",3,"10 EACH"),E("GLUTE BRIDGE",3,"20"),E("CALF RAISES",3,"25"),E("PLANK",3,"45S")]},
-        2:{title:"CORE + CARDIO",day:"WED",exercises:[E("DEAD BUG",3,"10 EACH"),E("KNEE RAISES",4,"12"),E("MOUNTAIN CLIMBERS",3,"30S"),E("PLANK",4,"45S"),E("SIDE PLANK",3,"30S EACH")]},
-        3:{title:"UPPER BODY",day:"THU",exercises:[E("PUSH-UPS",4,"12–15"),E("KNEE PUSH-UPS",3,"12–15"),E("PIKE PUSH-UPS",3,"8"),E("PLANK",4,"45S"),E("SIDE PLANK",3,"30S EACH")]},
-        4:{title:"FULL BODY CIRCUIT",day:"FRI",note:"3 ROUNDS",exercises:[E("PUSH-UPS","","×12–15"),E("SQUATS","","×18"),E("PLANK","","×45S"),E("WALL SIT","","×45S")]},
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("INCLINE PUSH-UPS",4,"12"),E("KNEE PUSH-UPS",3,"8"),E("PIKE PUSH-UPS",3,"6"),E("PLANK",3,"40S")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",4,"15"),E("REVERSE LUNGES",3,"10"),E("GLUTE BRIDGE",3,"20"),E("CALF RAISES",3,"25")]},
+        2:{title:"CORE + CONDITIONING",day:"WED",exercises:[E("LEG RAISES (BENT)",3,"12"),E("DEAD BUG",3,"10"),E("MOUNTAIN CLIMBERS",3,"25S"),E("WALK","","20 MIN")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("INCLINE PUSH-UPS",4,"15"),E("KNEE PUSH-UPS",3,"10"),E("SHOULDER TAPS",3,"15")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"3 ROUNDS",exercises:[E("INCLINE PUSH-UPS","","×12"),E("SQUATS","","×20"),E("PLANK","","×45S")]},
         5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
       },
       m3:{
-        0:{title:"UPPER BODY",day:"MON",exercises:[E("PUSH-UPS",4,"15"),E("PIKE PUSH-UPS",4,"10"),E("JUMP SQUATS",3,"10"),E("FRONT PLANK",4,"50S"),E("SIDE PLANK",3,"40S EACH")]},
-        1:{title:"LOWER BODY",day:"TUE",exercises:[E("SQUATS",4,"20"),E("REVERSE LUNGES",3,"10 EACH"),E("JUMP SQUATS",3,"10"),E("GLUTE BRIDGE",3,"20"),E("CALF RAISES",3,"25"),E("FRONT PLANK",3,"50S")]},
-        2:{title:"CORE + CARDIO",day:"WED",exercises:[E("DEAD BUG",3,"10 EACH"),E("KNEE RAISES",4,"12"),E("MOUNTAIN CLIMBERS",3,"30S"),E("FRONT PLANK",4,"50S"),E("SIDE PLANK",3,"40S EACH")]},
-        3:{title:"UPPER BODY",day:"THU",exercises:[E("PUSH-UPS",4,"15"),E("PIKE PUSH-UPS",4,"10"),E("JUMP SQUATS",3,"10"),E("FRONT PLANK",4,"50S"),E("SIDE PLANK",3,"40S EACH")]},
-        4:{title:"FULL BODY CIRCUIT",day:"FRI",note:"3 ROUNDS",exercises:[E("PUSH-UPS","","×15"),E("SQUATS","","×20"),E("JUMP SQUATS","","×10"),E("FRONT PLANK","","×50S"),E("WALL SIT","","×45S")]},
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",4,"5"),E("INCLINE PUSH-UPS",3,"12"),E("PIKE PUSH-UPS",3,"8"),E("PLANK",3,"60S")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",4,"18"),E("BULGARIAN SPLIT SQUAT",3,"8"),E("JUMP SQUATS",3,"8")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"12"),E("HOLLOW HOLD",3,"30S"),E("HIIT","","6 ROUNDS (20/40)")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",4,"8"),E("DIAMOND PUSH-UPS",3,"6"),E("WIDE PUSH-UPS",3,"10")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"4 ROUNDS",exercises:[E("PUSH-UPS","","×10"),E("SQUATS","","×25"),E("MOUNTAIN CLIMBERS","","×30S"),E("PLANK","","×60S")]},
         5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
       },
       m4:{
-        0:{title:"PUSH",day:"MON",exercises:[E("PUSH-UPS",5,"12"),E("PIKE PUSH-UPS",4,"8"),E("DIAMOND PUSH-UPS",3,"8"),E("PLANK",4,"60S"),E("PLANK SHOULDER TAPS",3,"30")]},
-        1:{title:"LEGS",day:"TUE",exercises:[E("SQUATS",5,"15"),E("BULGARIAN SPLIT SQUAT",3,"8 EACH"),E("JUMP SQUATS",3,"10"),E("CALF RAISES",4,"25"),E("PLANK",3,"60S")]},
-        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"12"),E("RUSSIAN TWISTS",3,"20"),E("HIGH KNEES","","20/40 ×10"),E("FRONT PLANK","","60S"),E("SIDE PLANK","","45S EACH","×2")]},
-        3:{title:"PUSH VOLUME",day:"THU",exercises:[E("PUSH-UPS",4,"15"),E("CLOSE PUSH-UPS",3,"12"),E("WIDE PUSH-UPS",3,"15"),E("PLANK",3,"60S")]},
-        4:{title:"CONDITIONING",day:"FRI",note:"4 ROUNDS",exercises:[E("PUSH-UPS","","×15"),E("SQUATS","","×25"),E("MOUNTAIN CLIMBERS","","×40S"),E("PLANK","","×60S")]},
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",4,"10"),E("PIKE PUSH-UPS",4,"8"),E("DIAMOND PUSH-UPS",3,"8"),E("PLANK",3,"60S")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"18"),E("BULGARIAN SPLIT SQUAT",3,"10"),E("GLUTE BRIDGE",3,"20"),E("CALF RAISES",4,"25")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"15"),E("HOLLOW HOLD",3,"40S"),E("HIIT","","8 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",4,"12"),E("WIDE PUSH-UPS",3,"12"),E("CLOSE PUSH-UPS",3,"10"),E("SHOULDER TAPS",3,"20")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"4 ROUNDS",exercises:[E("PUSH-UPS","","×12"),E("SQUATS","","×30"),E("MOUNTAIN CLIMBERS","","×40S"),E("PLANK","","×60S")]},
         5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
       },
-      m5:P256,m6:P256,m7:P3,m8:P3,m9:P3,m10:P4,m11:P4,m12:P4,
+      m5:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",5,"12"),E("PIKE PUSH-UPS",4,"10"),E("DIAMOND PUSH-UPS",4,"10")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"22"),E("BULGARIAN SPLIT SQUAT",4,"10"),E("JUMP SQUATS",3,"12")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"18"),E("HOLLOW HOLD",4,"45S"),E("HIIT","","10–12 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",4,"15"),E("WIDE PUSH-UPS",3,"15"),E("CLOSE PUSH-UPS",3,"12")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"4–5 ROUNDS",exercises:[E("PUSH-UPS","","×15"),E("SQUATS","","×35"),E("HIGH KNEES","","×45S"),E("PLANK","","×60S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m6:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",5,"15"),E("PSEUDO PLANCHE",4,"8"),E("PIKE PUSH-UPS",4,"12")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"25"),E("BULGARIAN SPLIT SQUAT",4,"12"),E("JUMP SQUATS",4,"12"),E("WALL SIT",2,"60S")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"20"),E("HOLLOW HOLD",4,"45S"),E("HIIT","","12–15 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",5,"18"),E("DIAMOND PUSH-UPS",4,"12"),E("WIDE PUSH-UPS",4,"18")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"5 ROUNDS",exercises:[E("PUSH-UPS","","×18"),E("SQUATS","","×40"),E("MOUNTAIN CLIMBERS","","×45S"),E("PLANK","","×75S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m7:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("ARCHER PUSH-UPS",4,"6 EACH"),E("PUSH-UPS",4,"20"),E("PIKE PUSH-UPS",4,"12")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"28"),E("BULGARIAN SPLIT SQUAT",4,"12"),E("JUMP SQUATS",4,"15")]},
+        2:{title:"CORE + CONDITIONING",day:"WED",exercises:[E("LEG RAISES",4,"22"),E("HOLLOW HOLD",4,"50S"),E("MOUNTAIN CLIMBERS","","45/15 ×10")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("DIAMOND PUSH-UPS",4,"15"),E("WIDE PUSH-UPS",4,"20"),E("SHOULDER TAPS",4,"30")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"5 ROUNDS",exercises:[E("PUSH-UPS","","×22"),E("SQUATS","","×35"),E("HIGH KNEES","","×45S"),E("PLANK","","×75S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m8:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("ARCHER PUSH-UPS",4,"8"),E("PSEUDO PLANCHE",4,"10"),E("DECLINE PIKE PUSH-UPS",4,"10")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"30"),E("BULGARIAN SPLIT SQUAT",4,"15"),E("JUMP SQUATS",4,"15")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"25"),E("HOLLOW HOLD",4,"60S"),E("HIIT","","12 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",5,"25"),E("DIAMOND PUSH-UPS",4,"18"),E("WIDE PUSH-UPS",4,"22")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"5 ROUNDS",exercises:[E("PUSH-UPS","","×25"),E("SQUATS","","×40"),E("BURPEES (STEP-BACK)","","×8"),E("PLANK","","×75S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m9:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("ARCHER PUSH-UPS",4,"10"),E("PSEUDO PLANCHE",4,"12"),E("PUSH-UPS",4,"25")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"32"),E("BULGARIAN SPLIT SQUAT",4,"15"),E("JUMP SQUATS",4,"18")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"28"),E("HOLLOW HOLD",4,"60S"),E("HIIT","","15 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PUSH-UPS",5,"28"),E("DIAMOND PUSH-UPS",4,"20"),E("WIDE PUSH-UPS",4,"25")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"6 ROUNDS",exercises:[E("PUSH-UPS","","×28"),E("SQUATS","","×40"),E("HIGH KNEES","","×60S"),E("PLANK","","×90S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m10:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",5,"30"),E("DIAMOND PUSH-UPS",4,"22"),E("PSEUDO PLANCHE",4,"12")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"35"),E("JUMP SQUATS",4,"18"),E("WALL SIT",2,"90S")]},
+        2:{title:"CORE + RECOVERY",day:"WED",exercises:[E("LEG RAISES",4,"30"),E("HOLLOW HOLD",4,"65S"),E("WALK","","30 MIN")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("ARCHER PUSH-UPS",4,"12"),E("WIDE PUSH-UPS",4,"28"),E("SHOULDER TAPS",4,"40")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"6 ROUNDS",exercises:[E("PUSH-UPS","","×30"),E("SQUATS","","×45"),E("MOUNTAIN CLIMBERS","","×60S"),E("PLANK","","×90S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m11:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",5,"32–35"),E("DIAMOND PUSH-UPS",4,"25"),E("ARCHER PUSH-UPS",4,"14")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"38"),E("BULGARIAN SPLIT SQUAT",4,"15"),E("JUMP SQUATS",4,"20")]},
+        2:{title:"CORE + HIIT",day:"WED",exercises:[E("LEG RAISES",4,"30"),E("HOLLOW HOLD",4,"70S"),E("HIIT","","15–18 ROUNDS")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("PSEUDO PLANCHE",4,"15"),E("WIDE PUSH-UPS",4,"30")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"6 ROUNDS",exercises:[E("PUSH-UPS","","×32"),E("SQUATS","","×45"),E("BURPEES","","×10"),E("PLANK","","×90S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
+      m12:{
+        0:{title:"UPPER STRENGTH",day:"MON",exercises:[E("PUSH-UPS",5,"40"),E("PSEUDO PLANCHE",4,"15"),E("DIAMOND PUSH-UPS",4,"30")]},
+        1:{title:"LOWER",day:"TUE",exercises:[E("SQUATS",5,"40"),E("JUMP SQUATS",4,"20")]},
+        2:{title:"CORE + RECOVERY",day:"WED",exercises:[E("LEG RAISES",4,"35"),E("HOLLOW HOLD",4,"75S"),E("WALK","","30–40 MIN")]},
+        3:{title:"UPPER VOLUME",day:"THU",exercises:[E("ARCHER PUSH-UPS",4,"15"),E("WIDE PUSH-UPS",4,"30")]},
+        4:{title:"CONDITIONING",day:"FRI",note:"6–7 ROUNDS",exercises:[E("PUSH-UPS","","×35"),E("SQUATS","","×50"),E("HIGH KNEES","","×60S"),E("PLANK","","×90S")]},
+        5:{title:"REST",day:"SAT",exercises:[]},6:{title:"REST",day:"SUN",exercises:[]},
+      },
     };
 
     // ── STATE MANAGEMENT ────────────────────────────────────────────────────────
